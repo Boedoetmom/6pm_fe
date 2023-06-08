@@ -68,56 +68,60 @@ const Register = () => {
     { value: 'Django [Back-End]', label: 'Django' },
     { value: 'Data Warehousing [Back-End]', label: 'Data Warehousing' },
     { value: 'React [Front-End]', label: 'React' },
-    { value: 'Vue.js [Front-End]', label: 'Vue.js' },
+    { value: 'Ember.js [Front-End]', label: 'Ember.js' },
     { value: 'Angular [Front-End]', label: 'Angular' },
-    { value: 'Classification [ML]', label: 'Classification' },
-    { value: 'Regression [ML]', label: 'Regression' },
-    { value: 'Image Classification [ML]', label: 'Image Classification' },
-    { value: 'Object Detection [ML]', label: 'Object Detection' },
+    { value: 'LSTM [ML]', label: 'LSTM' },
+    { value: 'ARIMA [ML]', label: 'ARIMA' },
+    { value: 'Music Information Retrieval [ML]', label: 'Music Information Retrieval' },
+    { value: 'Topic Modeling [ML]', label: 'Topic Modeling' },
     { value: 'Sentiment Analysis [ML]', label: 'Sentiment Analysis' },
-    { value: 'Speech Recognition [ML]', label: 'Speech Recognition' },
-    { value: 'Time-series Forecasting [ML]', label: 'Time-series Forecasting' }
+    { value: 'Object Detection [ML]', label: 'Object Detection' },
+    { value: 'Logistic Regression [ML]', label: 'Logistic Regression' },
+    { value: 'Linear Regression [ML]', label: 'Linear Regression' }
   ];
 
   const difficultyOptions = [
-    { value: 'Beginner', label: 'Beginner' },
-    { value: 'Intermediate', label: 'Intermediate' },
-    { value: 'Advanced', label: 'Advanced' }
+    { value: '1', label: 'S1 EASY' },
+    { value: '2', label: 'S1 MED' },
+    { value: '3', label: 'S1 HARD' },
+    { value: '4', label: 'S2 EASY' },
+    { value: '5', label: 'S2 MED' },
+    { value: '6', label: 'S2 HARD' },
+    { value: '7', label: 'S3 EASY' },
+    { value: '8', label: 'S3 MED' },
+    { value: '9', label: 'S3 HARD' },
+    { value: '10', label: 'S3 XHARD' }
   ];
 
   const timeBudgetOptions = [
-    { value: '1-2 weeks', label: '1-2 weeks' },
-    { value: '2-4 weeks', label: '2-4 weeks' },
-    { value: '1-2 months', label: '1-2 months' },
-    { value: '2-3 months', label: '2-3 months' },
-    { value: '3-4 months', label: '3-4 months' },
-    { value: '4-6 months', label: '4-6 months' },
-    { value: '6+ months', label: '6+ months' }
+    { value: '1', label: '1 Month' },
+    { value: '2', label: '2 Month' },
+    { value: '3', label: '3 Month' },
+    { value: '4', label: '4 Month' },
+    { value: '5', label: '5 Month' },
+    { value: '6', label: '6 Month' },
+    { value: '7', label: '7 Month' },
+    { value: '8', label: '8 Month' },
+    { value: '9', label: '9 Month' },
+    { value: '10', label: '10 Month' }
   ];
 
   const featureOptions = [
-    { value: 'Authentication', label: 'Authentication' },
-    { value: 'Authorization', label: 'Authorization' },
-    { value: 'Database Integration', label: 'Database Integration' },
-    { value: 'Third-party API Integration', label: 'Third-party API Integration' },
-    { value: 'Real-time Communication', label: 'Real-time Communication' },
-    { value: 'Payment Integration', label: 'Payment Integration' },
-    { value: 'Data Visualization', label: 'Data Visualization' },
-    { value: 'Chatbot', label: 'Chatbot' },
-    { value: 'Image Processing', label: 'Image Processing' },
-    { value: 'Audio Processing', label: 'Audio Processing' },
-    { value: 'Natural Language Processing', label: 'Natural Language Processing' },
-    { value: 'Time-series Analysis', label: 'Time-series Analysis' }
+    { value: '1', label: 'Dibawah 5' },
+    { value: '2', label: '5 sampai 10' },
+    { value: '3', label: 'Lebih dari 10' }
   ];
 
   const completenessOptions = [
-    { value: 'Partial', label: 'Partial' },
-    { value: 'Complete', label: 'Complete' }
+    { value: '1', label: 'Langsung pake' },
+    { value: '2', label: 'Preproses' },
+    { value: '3', label: 'Bantu cari' }
   ];
 
   const dataTypeOptions = [
-    { value: 'Structured', label: 'Structured' },
-    { value: 'Unstructured', label: 'Unstructured' }
+    { value: '1', label: 'Binary' },
+    { value: '2', label: 'Multiclass/regressor' },
+    { value: '3', label: 'Time-series' }
   ];
 
   return (
