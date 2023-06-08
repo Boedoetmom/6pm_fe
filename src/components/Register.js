@@ -12,33 +12,30 @@ const Register = () => {
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [selectedCompleteness, setSelectedCompleteness] = useState(null);
   const [selectedDataType, setSelectedDataType] = useState(null);
-  const [output, setOutput] = useState(null); // State untuk menyimpan output dari backend
 
   // Fungsi untuk mengirim data ke backend
   const handleSubmit = async () => {
     try {
-      const projectType = selectedProjectType.map(option => option.value);
-      const topik = selectedTopik.map(option => option.value);
-      const subTopik = selectedSubTopik.map(option => option.value);
-      const difficulty = selectedDifficulty.map(option => option.value);
-      const timeBudget = selectedTimeBudget.map(option => option.value);
-      const feature = selectedFeature.map(option => option.value);
-      const completeness = selectedCompleteness.map(option => option.value);
-      const dataType = selectedDataType.map(option => option.value);
+     const projectType= selectedProjectType.map(option => option.value);
+     const topik= selectedTopik.map(option => option.value);
+     const subTopik= selectedSubTopik.map(option => option.value);
+     const difficulty= selectedDifficulty.map(option => option.value);
+     const timeBudget= selectedTimeBudget.map(option => option.value);
+     const feature= selectedFeature.map(option => option.value);
+     const completeness= selectedCompleteness.map(option => option.value);
+     const dataType= selectedDataType.map(option => option.value);
 
-      const response = await axios.post('http://localhost:5000/users', {
-        projectType: projectType,
-        topik: topik,
-        subTopik: subTopik,
-        difficulty: difficulty,
-        timeBudget: timeBudget,
-        feature: feature,
-        completeness: completeness,
-        dataType: dataType
-      });
-
-      // Mengupdate state output dengan nilai dari respons backend
-      setOutput(response.data.output);
+     const response = await axios.post('http://localhost:5000/users', {
+      projectType: projectType,
+      topik: topik,
+      subTopik: subTopik,
+      difficulty: difficulty,
+      timeBudget: timeBudget,
+      feature: feature,
+      completeness: completeness,
+      dataType: dataType
+    });
+      console.log(response.data); // Menampilkan respon dari backend
     } catch (error) {
       console.error(error);
     }
@@ -126,112 +123,113 @@ const Register = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Registration Form</h1>
-
-      <div className="field">
-        <label className="label">Project Type</label>
-        <div className="control">
-          <Select
-            options={projectTypeOptions}
-            isMulti
-            onChange={setSelectedProjectType}
-          />
+      <div className="box">
+        <h1 className="title">Project Type</h1>
+        <div className="field">
+          <label className="label">Project-Type</label>
+          <div className="control">
+            <Select
+              options={projectTypeOptions}
+              isMulti
+              onChange={setSelectedProjectType}
+              value={selectedProjectType}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Topik</label>
+          <div className="control">
+            <Select
+              options={topikOptions}
+              isMulti
+              onChange={setSelectedTopik}
+              value={selectedTopik}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Sub-Topik</label>
+          <div className="control">
+            <Select
+              options={subTopikOptions}
+              isMulti
+              onChange={setSelectedSubTopik}
+              value={selectedSubTopik}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Topik</label>
-        <div className="control">
-          <Select
-            options={topikOptions}
-            isMulti
-            onChange={setSelectedTopik}
-          />
+      <div className="box">
+        <h1 className="title">Difficulty Point</h1>
+        <div className="field">
+          <label className="label">Complexity of the problem</label>
+          <div className="control">
+            <Select
+              options={difficultyOptions}
+              isMulti
+              onChange={setSelectedDifficulty}
+              value={selectedDifficulty}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Time and budget constraints (month)</label>
+          <div className="control">
+            <Select
+              options={timeBudgetOptions}
+              isMulti
+              onChange={setSelectedTimeBudget}
+              value={selectedTimeBudget}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Sub-Topik</label>
-        <div className="control">
-          <Select
-            options={subTopikOptions}
-            isMulti
-            onChange={setSelectedSubTopik}
-          />
+      <div className="box">
+        <h1 className="title">Size and Quality of the Data</h1>
+        <div className="field">
+          <label className="label">Berapa feature</label>
+          <div className="control">
+            <Select
+              options={featureOptions}
+              isMulti
+              onChange={setSelectedFeature}
+              value={selectedFeature}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Seberapa lengkap</label>
+          <div className="control">
+            <Select
+              options={completenessOptions}
+              isMulti
+              onChange={setSelectedCompleteness}
+              value={selectedCompleteness}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Jenis Data-Sheet</label>
+          <div className="control">
+            <Select
+              options={dataTypeOptions}
+              isMulti
+              onChange={setSelectedDataType}
+              value={selectedDataType}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Difficulty</label>
+      <div className="field is-grouped is-centered">
         <div className="control">
-          <Select
-            options={difficultyOptions}
-            isMulti
-            onChange={setSelectedDifficulty}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Time Budget</label>
-        <div className="control">
-          <Select
-            options={timeBudgetOptions}
-            isMulti
-            onChange={setSelectedTimeBudget}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Feature</label>
-        <div className="control">
-          <Select
-            options={featureOptions}
-            isMulti
-            onChange={setSelectedFeature}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Completeness</label>
-        <div className="control">
-          <Select
-            options={completenessOptions}
-            isMulti
-            onChange={setSelectedCompleteness}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Data Type</label>
-        <div className="control">
-          <Select
-            options={dataTypeOptions}
-            isMulti
-            onChange={setSelectedDataType}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <button className="button is-primary" onClick={handleSubmit}>
+          <button className="button is-primary" type="submit" onClick={handleSubmit}>
             Submit
           </button>
         </div>
       </div>
-
-      {output && (
-        <div className="field">
-          <label className="label">Output</label>
-          <div className="control">
-            <textarea className="textarea" value={output} readOnly />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
